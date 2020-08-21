@@ -13,5 +13,4 @@ build/newsDownloader/Tree-00.toc
 build/newsDownloader/Tree-01.toc
 build/newsDownloader/warn-newsDownloader.txt
 build/newsDownloader/xref-newsDownloader.html
-azRepublic.pdf
-NYT.pdf
+*.pdf
