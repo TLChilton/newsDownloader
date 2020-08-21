@@ -3,7 +3,10 @@
 # Created by Thomas Chilton
 import PyPDF2, os, traceback
 import requests, bs4, lxml
+from colorama import init
+init()
 
+print('Downloading pdfs...')
 res = requests.get('https://www.newseum.org/todaysfrontpages/?tfp_display=gallery&tfp_region=USA&tfp_sort_by=state&tfp_id=AZ_AR')
 res.raise_for_status()
 
