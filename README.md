@@ -1,5 +1,5 @@
 # newsDownloader
-A program I made to download the Arizona Republic and NYT front pages from the Newseum website and combine them into one pdf. For my buddy Shawn
+A program I made to download the Arizona Republic and NYT front pages from the Newseum website and combine them into one pdf. For my buddy Shawn and his journalism class
 
 ## Usage:
 
