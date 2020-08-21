@@ -82,8 +82,10 @@ try:
 except:
     errorFile = open('errorInfo.txt', 'w')
     errorFile.write(traceback.format_exc())
+    errorFile.write("\nNote from Programmer: \n")
+    errorFile.write("File names can not contain / and can not contain \\0")
     errorFile.close()
-    print('\u001b[91mFatal error encountered. Traceback info written to errorInfo.txt.\u001b[0m')
+    print('\u001b[91mFatal error encountered during file writing. Info written to errorInfo.txt.\u001b[0m')
 
 pdfFileObj1.close()
 pdfFileObj2.close()
