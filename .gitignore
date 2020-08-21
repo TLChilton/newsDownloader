@@ -1,1 +1,15 @@
 /dist
+newsDownloader.spec
+__pycache__/newsDownloader.cpython-38.pyc
+build/newsDownloader/Analysis-00.toc
+build/newsDownloader/base_library.zip
+build/newsDownloader/EXE-00.toc
+build/newsDownloader/newsDownloader.exe.manifest
+build/newsDownloader/PKG-00.pkg
+build/newsDownloader/PKG-00.toc
+build/newsDownloader/PYZ-00.pyz
+build/newsDownloader/PYZ-00.toc
+build/newsDownloader/Tree-00.toc
+build/newsDownloader/Tree-01.toc
+build/newsDownloader/warn-newsDownloader.txt
+build/newsDownloader/xref-newsDownloader.html
