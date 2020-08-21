@@ -44,13 +44,13 @@ for pageNum in range(0, pdfReader.numPages):
     pageObj = pdfReader.getPage(pageNum)
     pdfWriter.addPage(pageObj)
 
-print('Please enter a name for the combined news PDF file: ', end='')
+print('\u001b[95mPlease enter a name for the combined news PDF file: \u001b[0m', end='')
 savedFile = input()
 if savedFile.endswith('.pdf') == False:
     savedFile = savedFile + '.pdf'
 savedFile = os.path.abspath(savedFile)
 while os.path.exists(savedFile):
-    print('ERROR: ' + savedFile + ' already exists, \nPlease enter a new name: ', end= '')
+    print('\u001b[95mERROR: ' + savedFile + ' already exists, \nPlease enter a new name: \u001b[0m', end= '')
     savedFile = input()
     if savedFile.endswith('.pdf') == False:
         savedFile = savedFile + '.pdf'
