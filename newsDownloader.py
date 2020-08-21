@@ -74,3 +74,6 @@ pdfFileObj2.close()
 
 os.remove('NYT.pdf')
 os.remove('azRepublic.pdf')
+
+print ('Execution successful, hit enter to close')
+input()
