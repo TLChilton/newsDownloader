@@ -59,8 +59,8 @@ for pageNum in range(0, pdfReader.numPages):
     pdfWriter.addPage(pageObj)
 
 # File saving section
-print('\u001b[95mPlease enter a name for the combined news PDF file: \u001b[0m', end='')
-savedFile = input()
+today = date.today()
+savedFile = today
 # If the user left out the .pdf file extension add it at the end
 if savedFile.endswith('.pdf') == False:
     savedFile = savedFile + '.pdf'
