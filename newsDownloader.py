@@ -7,6 +7,8 @@ import PyPDF2, os, traceback
 import requests, bs4, lxml
 from colorama import init
 init()
+# You were missing this import line
+from datetime import date
 
 # Messages are mostly unneccessary but they let the user know the program is working
 print('Downloading pdfs...')
@@ -59,20 +61,26 @@ for pageNum in range(0, pdfReader.numPages):
     pdfWriter.addPage(pageObj)
 
 # File saving section
-today = date.today()
-savedFile = today
-# If the user left out the .pdf file extension add it at the end
+# date.today() creates an object of type 'datetime.date' and needs to be
+# converted to a string for this to work
+savedFile = str(date.today()) + '.pdf'
+''' This part would be harmless to leave in but is unneccessary
 if savedFile.endswith('.pdf') == False:
     savedFile = savedFile + '.pdf'
+'''
+
+if os.path.exists(savedFile):
+    os.remove(savedFile)
 savedFile = os.path.abspath(savedFile)
 
-# If the file name exists ask the user for a new file name
+'''This part still running would mess up the program
 while os.path.exists(savedFile):
     print('\u001b[95mERROR: \u001b[93m' + savedFile + '\u001b[95m already exists, \nPlease enter a new name: \u001b[0m', end= '')
     savedFile = input()
     if savedFile.endswith('.pdf') == False:
         savedFile = savedFile + '.pdf'
     savedFile = os.path.abspath(savedFile)
+'''
 print('Daily news PDF saving as ' + savedFile)
 try:
     pdfOutput = open(savedFile, 'wb')
@@ -82,8 +90,10 @@ try:
 except:
     errorFile = open('errorInfo.txt', 'w')
     errorFile.write(traceback.format_exc())
+    ''' This part isn't needed anymore and could be removed
     errorFile.write("\nNote from Programmer: \n")
-    errorFile.write("File names can not contain / and can not contain \\0")
+    errorFile.write("File names can not contain / and can not contain \\0") 
+    '''
     errorFile.close()
     print('\u001b[91mFatal error encountered during file writing. Info written to errorInfo.txt.\u001b[0m')
 
