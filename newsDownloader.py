@@ -7,6 +7,7 @@ import PyPDF2, os, traceback
 import requests, bs4, lxml
 from colorama import init
 init()
+from datetime import datetime
 
 # Messages are mostly unneccessary but they let the user know the program is working
 print('Downloading pdfs...')
@@ -58,6 +59,7 @@ for pageNum in range(0, pdfReader.numPages):
     pageObj = pdfReader.getPage(pageNum)
     pdfWriter.addPage(pageObj)
 
+""" Old file naming system
 # File saving section
 print('\u001b[95mPlease enter a name for the combined news PDF file: \u001b[0m', end='')
 savedFile = input()
@@ -86,6 +88,16 @@ except:
     errorFile.write("File names can not contain / and can not contain \\0")
     errorFile.close()
     print('\u001b[91mFatal error encountered during file writing. Info written to errorInfo.txt.\u001b[0m')
+"""
+
+# New File Name System that just saves it as today's date
+fileName = str(datetime.date(datetime.now())) + '.pdf'
+fileName = os.path.abspath(fileName)
+if os.path.exists(fileName):
+    os.remove(fileName)
+pdfOutput = open(fileName, 'wb')
+pdfWriter.write(pdfOutput)
+pdfOutput.close()
 
 pdfFileObj1.close()
 pdfFileObj2.close()
@@ -95,5 +107,4 @@ os.remove('NYT.pdf')
 os.remove('azRepublic.pdf')
 
 # Keep the program from automatically closing so the user can review the information displayed
-print ('Execution successful, hit enter to close')
-input()
+print ('Execution successful')
